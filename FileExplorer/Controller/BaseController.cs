@@ -34,7 +34,7 @@ namespace FileExplorer.Controller
             }
         }
 
-
+        //Refresh 
         public void RefreshCanExecute()
         {
             if (CanExecuteChanged != null)
