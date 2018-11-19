@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="FileExplorer.Pages.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:VM="clr-namespace:FileExplorer.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <VM:VMHome x:Key="HomeVM"></VM:VMHome>
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="800">
+                <Grid Style="{StaticResource ContentRoot}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Please select folder" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Left" Margin="40,6,0,0" VerticalAlignment="Top" />
+                    <TextBox x:Name="txtSelectedFolder" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4" Height="24" Grid.Row="0" TextWrapping="Wrap" Text="{Binding SelectedFolder, Source={StaticResource HomeVM}}" VerticalAlignment="Top" TextAlignment="Left" />
+                    <Button Content="Open Folder" Grid.Column="2" HorizontalAlignment="Left" Margin="4" Grid.Row="0" VerticalAlignment="Top" Height="26" Command="{Binding CommandBase, Mode=OneWay, Source={StaticResource HomeVM}}" CommandParameter="OpenFolder"/>
+
+                </Grid>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
