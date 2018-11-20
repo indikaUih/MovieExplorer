@@ -1,6 +1,7 @@
 ﻿using FileExplorer.Controller;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace FileExplorer.ViewModel
     public class VMHome: ViewModelBase
     {
         private readonly BaseController _baseCommand;
+        
+
         private string _selectedFolder;
 
 
@@ -51,9 +54,11 @@ namespace FileExplorer.ViewModel
             {
                 Console.WriteLine(fb.FileName);
                 SelectedFolder = fb.FileName;
-                PropertyChangedNotify("txtSelectedFolder");
+                PropertyChangedNotify("SelectedFolder");
             }
         }
+
+        
 
 
         #region Binding Properties
